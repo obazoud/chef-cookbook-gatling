@@ -1,0 +1,33 @@
+{
+  "name": "gatling",
+  "description": "Installs/Configures Gatling performance testing tool",
+  "long_description": "gatling Cookbook\n=======================\nThis cookbook install the [Gatling Stress Tool](http://gatling-tool.org/) for performance testing.\n\nRequirements\n------------\nThis cookbook was written on Amazon Linux so YMMV with other operating systems. Feel free to submit me a pull request. :)\n\nThis cookbook depends on the folling cookbooks:\n- `java` - Java is required to run Gatling.\n- `ark` - This is used to install the Gatling tar ball\n- `ulimit` - Tweak some limits for Gatling\n- `sysctl` - Tweak some kernel params for Gatling\n\nAttributes\n----------\n\n#### gatling::default\n<table>\n  <tr>\n    <th>Key</th>\n    <th>Type</th>\n    <th>Description</th>\n    <th>Default</th>\n  </tr>\n  <tr>\n    <td><tt>['gatling']['user']</tt></td>\n    <td>String</td>\n    <td>Gatling user</td>\n    <td><tt>gatling</tt></td>\n  </tr>\n  <tr>\n    <td><tt>['gatling']['group']</tt></td>\n    <td>String</td>\n    <td>Gatling group</td>\n    <td><tt>gatling</tt></td>\n  </tr>\n  <tr>\n    <td><tt>['gatling']['install_prefix']</tt></td>\n    <td>String</td>\n    <td>Gatling install prefix. A Gatling versioned subdir will be created, along with a symling that is added to the path</td>\n    <td><tt>/usr/local</tt></td>\n  </tr>\n  <tr>\n    <td><tt>['gatling']['download_url']</tt></td>\n    <td>String</td>\n    <td>Gatling tarball package download URL. Set this attribute yourself by getting a URL here: http://gatling-tool.org/</td>\n    <td><tt>NONE</tt></td>\n  </tr>  <tr>\n    <td><tt>['gatling']['version']</tt></td>\n    <td>String</td>\n    <td>Gatling version</td>\n    <td><tt>2.0.0-M3a</tt></td>\n  </tr>\n</table>\n\nUsage\n-----\n#### gatling::default\n\nSet the `download_url` attribute.\n\nJust include `gatling` in your node's `run_list`:\n\n```json\n{\n  \"name\":\"my_node\",\n  \"run_list\": [\n    \"recipe[gatling]\"\n  ]\n}\n```\n\nContributing\n------------\n1. Fork the repository on Github\n2. Create a named feature branch (like `add_component_x`)\n3. Write your change\n4. Write tests for your change (if applicable)\n5. Run the tests, ensuring they all pass\n6. Submit a Pull Request using Github\n\nLicense and Authors\n-------------------\nAuthors: Joe Richards <nospam-github@disconformity.net>\n",
+  "maintainer": "Joe Richards",
+  "maintainer_email": "nospam-github@disconformity.net",
+  "license": "GPL v3",
+  "platforms": {
+  },
+  "dependencies": {
+    "java": ">= 0.0.0",
+    "ark": ">= 0.0.0",
+    "ulimit": ">= 0.0.0",
+    "sysctl": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.2.0"
+}
