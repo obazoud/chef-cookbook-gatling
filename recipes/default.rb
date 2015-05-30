@@ -9,10 +9,10 @@ include_recipe 'java'
 include_recipe 'ark'
 include_recipe 'sysctl'
 
-gatling_user_files    = "#{node['gatling']['install_prefix']}/gatling/user-files"
-gatling_bin           = "#{node['gatling']['install_prefix']}/gatling/bin"
-gatling_conf          = "#{node['gatling']['install_prefix']}/gatling/conf"
-gatling_results       = "#{node['gatling']['install_prefix']}/gatling/results"
+gatling_user_files    = "#{node['gatling']['install_prefix']}/gatling-#{node['gatling']['version']}/user-files"
+gatling_bin           = "#{node['gatling']['install_prefix']}/gatling-#{node['gatling']['version']}/bin"
+gatling_conf          = "#{node['gatling']['install_prefix']}/gatling-#{node['gatling']['version']}/conf"
+gatling_results       = "#{node['gatling']['install_prefix']}/gatling-#{node['gatling']['version']}/results"
 
 group node['gatling']['group']
 
@@ -20,7 +20,7 @@ user node['gatling']['user'] do
     supports :manage_home => false
     group node['gatling']['group']
     shell "/bin/bash"
-    home "#{node['gatling']['install_prefix']}/gatling"
+    home "/home/gatling"
 end
 
 user_ulimit node['gatling']['user'] do
