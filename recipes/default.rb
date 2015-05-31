@@ -79,16 +79,6 @@ directory gatling_conf do
     action :create
 end
 
-template "#{gatling_conf}/gatling.conf" do
-    source "gatling.conf.erb"
-    owner node['gatling']['user']
-    group node['gatling']['group']
-    variables({
-        :gatling_results     => gatling_results,
-        :gatling_user_files  => gatling_user_files
-    })
-end
-
 cookbook_file "#{gatling_conf}/logback.xml" do
     source "logback.xml"
     mode 0755
