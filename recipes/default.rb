@@ -7,7 +7,6 @@
 
 include_recipe 'java'
 include_recipe 'ark'
-include_recipe 'sysctl'
 
 gatling_user_files    = "#{node['gatling']['install_prefix']}/gatling-#{node['gatling']['version']}/user-files"
 gatling_bin           = "#{node['gatling']['install_prefix']}/gatling-#{node['gatling']['version']}/bin"
@@ -21,21 +20,6 @@ user node['gatling']['user'] do
     group node['gatling']['group']
     shell "/bin/bash"
     home "/home/gatling"
-end
-
-user_ulimit node['gatling']['user'] do
-    filehandle_limit    300000
-    process_limit       300000
-end
-
-sysctl_param 'net.ipv4.tcp_fin_timeout' do
-    value 15
-    action :apply
-end
-
-sysctl_param 'net.ipv4.ip_local_port_range' do
-    value '1025 65535'
-    action :apply
 end
 
 ark 'gatling' do
